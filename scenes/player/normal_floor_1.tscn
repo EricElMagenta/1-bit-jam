@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6fviojmvlsrc"]
+
+[ext_resource type="Script" path="res://scenes/player/normal_floor_1.gd" id="1_8mlxw"]
+[ext_resource type="Texture2D" uid="uid://dbpsvkvgceie0" path="res://sprites/Player/normal_floor_1.png" id="1_874pt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cus3j"]
+size = Vector2(32, 16)
+
+[node name="NormalFloor1" type="CharacterBody2D" groups=["Floors"]]
+position = Vector2(16, 80)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_8mlxw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cus3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_874pt")

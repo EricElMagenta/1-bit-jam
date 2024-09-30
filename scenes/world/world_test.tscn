@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2r3cump25277"]
+
+[ext_resource type="Script" path="res://scenes/world/world_test.gd" id="1_ihpo6"]
+[ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="2_aa0d3"]
+[ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/player/normal_floor_item.tscn" id="3_ocf25"]
+
+[node name="WorldTest" type="Node2D"]
+script = ExtResource("1_ihpo6")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_aa0d3")]
+position = Vector2(32, 104)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(0, -56)
+polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 254, 56, 255, 138, 267, 138, 266, 63, 308, 64, 311.742, 192.953, 169.872, 192.52, 138.057, 192.422, 8.19661, 192.025, 8, 165)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+
+[node name="NormalFloorItem4" parent="." instance=ExtResource("3_ocf25")]
+position = Vector2(75, 121)
+
+[node name="NormalFloorItem" parent="." instance=ExtResource("3_ocf25")]
+position = Vector2(125, 107)
+
+[node name="NormalFloorItem2" parent="." instance=ExtResource("3_ocf25")]
+position = Vector2(221, 83)
+
+[node name="NormalFloorItem3" parent="." instance=ExtResource("3_ocf25")]
+position = Vector2(172, 94)
