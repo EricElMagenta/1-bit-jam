@@ -14,18 +14,18 @@ position = Vector2(32, 104)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(0, -56)
-polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 254, 56, 255, 138, 267, 138, 266, 63, 308, 64, 311.742, 192.953, 169.872, 192.52, 138.057, 192.422, 8.19661, 192.025, 8, 165)
+polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 254, 56, 255, 126, 267, 126, 266, 64, 312, 64, 312, 193, 169.872, 192.52, 138.057, 192.422, 8.19661, 192.025, 8, 165)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="NormalFloorItem4" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(75, 121)
+position = Vector2(80, 121)
 
 [node name="NormalFloorItem" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(125, 107)
+position = Vector2(127, 93)
 
 [node name="NormalFloorItem2" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(221, 83)
+position = Vector2(222, 59)
 
 [node name="NormalFloorItem3" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(172, 94)
+position = Vector2(175, 81)

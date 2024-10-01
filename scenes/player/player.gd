@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
-@export var movement_data : PlayerMovementData
-@onready var animated_sprite_2d = $AnimatedSprite2D
+const FLOOR_HEIGHT = 17
 
+@export var movement_data : PlayerMovementData # RESOURCE DEL MOVIMIENTO
+@onready var animated_sprite_2d = $AnimatedSprite2D # REFERENCIA AL NODO animated sprite 2d
+@onready var up_raycast = $UpRaycast # RAYCAST PARA TECHOS (DEBE ESTAR SIEMPRE POR ENCIMA DE LA ÚLTIMA TORRE)
 var floors = []
-#var tower_collision_detected = false
 
+# ================================================ FUNCCIÓN READY ===================================================================================
+# AGREGAR PISOS AL AGARRAR UNO (NI IDEA PORQUE VA EN _ready(), PERO FUNCIONA BIEN)
 func _ready():
-	Events.got_floor.connect(add_floor)
+	Events.got_floor.connect(add_floor) 
 
+# ================================================ FUNCIÓN PRINCIPAL =================================================================================
 func _physics_process(delta):
 	
 	# Add the gravity.
@@ -17,17 +21,16 @@ func _physics_process(delta):
 
 	# Handle jump.
 	handle_jump()
-
-	# Handle tower collisions
-	print(detect_collisions())
-
+	
 	var input_axis = Input.get_axis("ui_left", "ui_right")
 	handle_movement(input_axis, delta)
 	apply_friction(input_axis)
 	update_animations(input_axis)
 
 	move_and_slide()
+	
 
+# =============================================== FUNCIONES AUXILIARES ===================================================================================
 # MOVIMIENTO
 func handle_movement(input_axis, delta):
 	#if !is_on_floor(): return
@@ -38,11 +41,26 @@ func handle_movement(input_axis, delta):
 			velocity.x = move_toward(velocity.x, 0, movement_data.SPEED * delta)
 	else:
 		velocity.x = 0
+		
+	if up_raycast.is_colliding():
+		velocity.y = 30
+
+# DETECCIÓN DE COLISIONES EN LOS PISOS
+func detect_collisions():
+	if len(floors) > 0:
+		for i in range(len(floors)):
+			if floors[i].collision_detected:
+				return true
+	return false
 
 # SALTO
 func handle_jump():
 	if is_on_floor() && Input.is_action_just_pressed("ui_up"):
 		velocity.y = movement_data.JUMP_VELOCITY
+
+# DETECTAR COLISIÓN CON LOS TECHOS
+func update_up_shapecast():
+	up_raycast.position.y -= FLOOR_HEIGHT 
 
 # FRICCIÓN
 func apply_friction(input_axis):
@@ -60,18 +78,14 @@ func update_animations(input_axis):
 	if !is_on_floor():
 		animated_sprite_2d.play("Jump")
 
-# AGREGAR PISO
+
+# =================================================== SEÑALES =========================================================================================== 
+# AGREGAR PISO (SE MODIFICARÁ CUANDO SE AGREGUEN MÁS TIPOS DE PISOS)
 func add_floor():
 	var scene = load("res://scenes/player/normal_floor_1.tscn")
 	var scene_instance = scene.instantiate()
 	floors.append(scene_instance)
+	up_raycast.enabled = true
+	update_up_shapecast()
 	#print(get_tree().get_nodes_in_group("Floors").size())
 	call_deferred("add_sibling", scene_instance)
-
-# DETECCIÓN DE COLISIONES EN LOS PISOS
-func detect_collisions():
-	if len(floors) > 0:
-		for i in range(len(floors)):
-			if floors[i].collision_detected:
-				return true
-	return false

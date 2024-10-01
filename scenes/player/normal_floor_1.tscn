@@ -18,3 +18,11 @@ shape = SubResource("RectangleShape2D_cus3j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_874pt")
+
+[node name="LeftRaycast" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(-18, 0)
+
+[node name="RightRaycast" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(18, 0)

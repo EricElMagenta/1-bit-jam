@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5bh32jafe1cc"]
+[gd_scene load_steps=10 format=3 uid="uid://b5bh32jafe1cc"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_00inp"]
 [ext_resource type="Texture2D" uid="uid://cqbbdxrnwm3cf" path="res://sprites/Player/feet_1.png" id="1_pn3ky"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dnnmm4ek0uoqr" path="res://sprites/Player/feet_4.png" id="4_7uaqw"]
 [ext_resource type="Texture2D" uid="uid://bmwy2154xioom" path="res://sprites/Player/feet_2.png" id="4_uspov"]
 [ext_resource type="Texture2D" uid="uid://xn854k2nybpd" path="res://sprites/Player/feet_3.png" id="5_m2rje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp1pq"]
+size = Vector2(21, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mouc0"]
 animations = [{
@@ -40,8 +43,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp1pq"]
-size = Vector2(21, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p810s"]
+size = Vector2(26, 0.415)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -50,12 +53,18 @@ floor_max_angle = 0.698132
 floor_snap_length = 3.0
 script = ExtResource("1_00inp")
 movement_data = ExtResource("2_gbau0")
-metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_vp1pq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mouc0")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_vp1pq")
+[node name="UpRaycast" type="ShapeCast2D" parent="."]
+modulate = Color(0.967637, 0.844337, 1, 1)
+position = Vector2(0, -3)
+enabled = false
+shape = SubResource("RectangleShape2D_p810s")
+target_position = Vector2(0, -0.785)
