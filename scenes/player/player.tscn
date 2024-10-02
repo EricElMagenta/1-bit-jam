@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p810s"]
-size = Vector2(26, 0.415)
+size = Vector2(30, 0.415)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -55,12 +55,12 @@ script = ExtResource("1_00inp")
 movement_data = ExtResource("2_gbau0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_vp1pq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mouc0")
 animation = &"Idle"
+metadata/_edit_lock_ = true
 
 [node name="UpRaycast" type="ShapeCast2D" parent="."]
 modulate = Color(0.967637, 0.844337, 1, 1)

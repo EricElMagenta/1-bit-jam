@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbpsvkvgceie0" path="res://sprites/Player/normal_floor_1.png" id="1_874pt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cus3j"]
-size = Vector2(32, 16)
+size = Vector2(32, 14)
 
 [node name="NormalFloor1" type="CharacterBody2D" groups=["Floors"]]
 position = Vector2(16, 80)
@@ -21,8 +21,8 @@ texture = ExtResource("1_874pt")
 
 [node name="LeftRaycast" type="RayCast2D" parent="."]
 position = Vector2(0, -8)
-target_position = Vector2(-18, 0)
+target_position = Vector2(-19, 0)
 
 [node name="RightRaycast" type="RayCast2D" parent="."]
 position = Vector2(0, -8)
-target_position = Vector2(18, 0)
+target_position = Vector2(19, 0)

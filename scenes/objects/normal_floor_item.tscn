@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://scenes/objects/normal_floor_item.gd" id="1_p7mvu"]
 [ext_resource type="Texture2D" uid="uid://dbpsvkvgceie0" path="res://sprites/Player/normal_floor_1.png" id="1_xdved"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad7om"]
-size = Vector2(34, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i2dlb"]
+radius = 1.0
+height = 32.0
 
 [node name="NormalFloorItem" type="Area2D"]
 collision_layer = 0
@@ -12,10 +13,11 @@ collision_mask = 2
 script = ExtResource("1_p7mvu")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ad7om")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xdved")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_i2dlb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

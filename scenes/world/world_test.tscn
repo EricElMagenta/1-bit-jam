@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/world/world_test.gd" id="1_ihpo6"]
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="2_aa0d3"]
-[ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/player/normal_floor_item.tscn" id="3_ocf25"]
+[ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="3_ocf25"]
 
 [node name="WorldTest" type="Node2D"]
 script = ExtResource("1_ihpo6")
@@ -19,13 +19,19 @@ polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 254, 56, 255, 12
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="NormalFloorItem4" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(80, 121)
+position = Vector2(80, 104)
 
 [node name="NormalFloorItem" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(127, 93)
+position = Vector2(116, 102)
 
 [node name="NormalFloorItem2" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(222, 59)
+position = Vector2(214, 111)
+
+[node name="NormalFloorItem5" parent="." instance=ExtResource("3_ocf25")]
+position = Vector2(280, 102)
+
+[node name="NormalFloorItem6" parent="." instance=ExtResource("3_ocf25")]
+position = Vector2(280, 85)
 
 [node name="NormalFloorItem3" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(175, 81)
+position = Vector2(151, 108)
