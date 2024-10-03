@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://b5bh32jafe1cc"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_00inp"]
-[ext_resource type="Texture2D" uid="uid://cqbbdxrnwm3cf" path="res://sprites/Player/feet_1.png" id="1_pn3ky"]
+[ext_resource type="Texture2D" uid="uid://dohvaby8rmkih" path="res://sprites/Player/feet_1.png" id="1_pn3ky"]
 [ext_resource type="Resource" uid="uid://7gfn5bnxp6da" path="res://resources/DefaultMovementData.tres" id="2_gbau0"]
-[ext_resource type="Texture2D" uid="uid://dnnmm4ek0uoqr" path="res://sprites/Player/feet_4.png" id="4_7uaqw"]
-[ext_resource type="Texture2D" uid="uid://bmwy2154xioom" path="res://sprites/Player/feet_2.png" id="4_uspov"]
-[ext_resource type="Texture2D" uid="uid://xn854k2nybpd" path="res://sprites/Player/feet_3.png" id="5_m2rje"]
+[ext_resource type="Texture2D" uid="uid://bffrosy7ri7w8" path="res://sprites/Player/feet_4.png" id="4_7uaqw"]
+[ext_resource type="Texture2D" uid="uid://ia81hgptma2p" path="res://sprites/Player/feet_2.png" id="4_uspov"]
+[ext_resource type="Texture2D" uid="uid://dewmj1y1s3o71" path="res://sprites/Player/feet_3.png" id="5_m2rje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vp1pq"]
 size = Vector2(21, 8)

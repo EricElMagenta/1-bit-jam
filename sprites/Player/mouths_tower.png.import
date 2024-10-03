@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dewmj1y1s3o71"
-path="res://.godot/imported/feet_3.png-496dc5dbfd8935eac3b97b5a1e5ae308.ctex"
+uid="uid://bvimwm2eck8to"
+path="res://.godot/imported/mouths_tower.png-5b6c08300aa62957f44d1d1e1d497593.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Player/feet_3.png"
-dest_files=["res://.godot/imported/feet_3.png-496dc5dbfd8935eac3b97b5a1e5ae308.ctex"]
+source_file="res://sprites/Player/mouths_tower.png"
+dest_files=["res://.godot/imported/mouths_tower.png-5b6c08300aa62957f44d1d1e1d497593.ctex"]
 
 [params]
 

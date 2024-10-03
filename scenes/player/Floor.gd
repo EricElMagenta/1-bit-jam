@@ -12,6 +12,7 @@ const FLOOR_HEIGHT = 17
 var collision_detected = false
 var left_ray_collision = false # Collision izq. con torres
 var right_ray_collision = false # Collision der. con torres
+var direction = 1
 
 func _ready():
 	position = Vector2(player.position.x, player.position.y - (floor_index * FLOOR_HEIGHT) + 5)

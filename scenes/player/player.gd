@@ -36,7 +36,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Reiniciar nivel
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_down"):
 		get_tree().reload_current_scene()
 
 # =============================================== FUNCIONES AUXILIARES ===================================================================================
@@ -91,10 +91,10 @@ func update_animations(input_axis):
 # AGREGAR PISO (SE MODIFICARÁ CUANDO SE AGREGUEN MÁS TIPOS DE PISOS)
 func add_floor(floor_type, _a, _b):
 	print(floor_type)
-	var scene = load("res://scenes/player/normal_floor_1.tscn")
+	var new_floor = "res://scenes/player/" + floor_type + ".tscn"
+	var scene = load(new_floor)
 	var scene_instance = scene.instantiate()
 	floors.append(scene_instance)
 	up_raycast.enabled = true
 	update_up_shapecast()
-	#print(get_tree().get_nodes_in_group("Floors").size())
 	call_deferred("add_sibling", scene_instance)

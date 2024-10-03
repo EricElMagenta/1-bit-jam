@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://hu2s1lkc3g7i"]
+
+[ext_resource type="Script" path="res://scenes/player/mouth_floor_1.gd" id="1_fvtae"]
+[ext_resource type="Texture2D" uid="uid://bvimwm2eck8to" path="res://sprites/Player/mouths_tower.png" id="2_rqpwj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oemcf"]
+size = Vector2(32, 14)
+
+[node name="MouthFloor1" type="CharacterBody2D" groups=["Floors"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_fvtae")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rqpwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oemcf")
+
+[node name="LeftRaycast" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(-19, 0)
+
+[node name="RightRaycast" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
+target_position = Vector2(19, 0)

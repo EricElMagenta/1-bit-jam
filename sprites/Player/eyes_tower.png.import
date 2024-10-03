@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dewmj1y1s3o71"
-path="res://.godot/imported/feet_3.png-496dc5dbfd8935eac3b97b5a1e5ae308.ctex"
+uid="uid://c63xnmkw7f3ab"
+path="res://.godot/imported/eyes_tower.png-3a1de3894296cfe454269ca8330dc354.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Player/feet_3.png"
-dest_files=["res://.godot/imported/feet_3.png-496dc5dbfd8935eac3b97b5a1e5ae308.ctex"]
+source_file="res://sprites/Player/eyes_tower.png"
+dest_files=["res://.godot/imported/eyes_tower.png-3a1de3894296cfe454269ca8330dc354.ctex"]
 
 [params]
 

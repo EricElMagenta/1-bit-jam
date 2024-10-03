@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2r3cump25277"]
+[gd_scene load_steps=6 format=3 uid="uid://b2r3cump25277"]
 
 [ext_resource type="Script" path="res://scenes/world/world_test.gd" id="1_ihpo6"]
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="2_aa0d3"]
 [ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="3_ocf25"]
 [ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="4_mlbq8"]
+[ext_resource type="PackedScene" uid="uid://ljagpwiamh3h" path="res://scenes/objects/mouth_floor_item.tscn" id="5_coxs4"]
 
 [node name="WorldTest" type="Node2D"]
 script = ExtResource("1_ihpo6")
@@ -15,27 +16,24 @@ position = Vector2(32, 104)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(0, -56)
-polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 254, 56, 255, 126, 267, 126, 266, 64, 312, 64, 312, 193, 169.872, 192.52, 138.057, 192.422, 8.19661, 192.025, 8, 165)
+polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 254, 56, 255, 126, 267, 126, 266, 64, 312, 64, 312, 224, 151.389, 224, 151, 210, 132, 210, 132.054, 224, 8, 224, 8, 165)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
-[node name="NormalFloorItem4" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(80, 104)
-
 [node name="NormalFloorItem" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(116, 102)
+position = Vector2(70, 159)
 
 [node name="NormalFloorItem2" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(214, 111)
+position = Vector2(185, 93)
 
-[node name="NormalFloorItem5" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(280, 102)
+[node name="EyeFloorItem3" parent="." instance=ExtResource("4_mlbq8")]
+position = Vector2(179, 140)
 
-[node name="NormalFloorItem6" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(280, 85)
+[node name="EyeFloorItem4" parent="." instance=ExtResource("4_mlbq8")]
+position = Vector2(119, 67)
 
-[node name="NormalFloorItem3" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(151, 108)
+[node name="MouthFloorItem" parent="." instance=ExtResource("5_coxs4")]
+position = Vector2(235, 107)
 
-[node name="EyeFloorItem" parent="." instance=ExtResource("4_mlbq8")]
-position = Vector2(56, 105)
+[node name="MouthFloorItem2" parent="." instance=ExtResource("5_coxs4")]
+position = Vector2(115, 141)
