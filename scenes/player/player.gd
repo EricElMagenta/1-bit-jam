@@ -8,10 +8,16 @@ const FLOOR_HEIGHT = 17
 var floors = []
 
 # ================================================ FUNCCIÓN READY ===================================================================================
-# AGREGAR PISOS AL AGARRAR UNO (NI IDEA PORQUE VA EN _ready(), PERO FUNCIONA BIEN)
+# AGREGAR PISOS AL AGARRAR UNO (NI IDEA PORQUE VA EN _ready())
 func _ready():
-	Events.got_floor.connect(add_floor) 
-
+	var items = get_tree().get_nodes_in_group("FloorItems")
+	for item in items:
+		item.got_floor.connect(add_floor.bind(item.floor_type, item))
+		
+	#get_tree().get_first_node_in_group("FloorItems").connect("got_floor", add_floor)
+	#Events.got_floor.connect(add_floor) 
+	#Events.got_floor.connect(add_floor.bind("floor_type")) 
+	
 # ================================================ FUNCIÓN PRINCIPAL =================================================================================
 func _physics_process(delta):
 	
@@ -29,6 +35,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	# Reiniciar nivel
+	if Input.is_action_just_pressed("ui_accept"):
+		get_tree().reload_current_scene()
 
 # =============================================== FUNCIONES AUXILIARES ===================================================================================
 # MOVIMIENTO
@@ -78,10 +87,10 @@ func update_animations(input_axis):
 	if !is_on_floor():
 		animated_sprite_2d.play("Jump")
 
-
 # =================================================== SEÑALES =========================================================================================== 
 # AGREGAR PISO (SE MODIFICARÁ CUANDO SE AGREGUEN MÁS TIPOS DE PISOS)
-func add_floor():
+func add_floor(floor_type, _a, _b):
+	print(floor_type)
 	var scene = load("res://scenes/player/normal_floor_1.tscn")
 	var scene_instance = scene.instantiate()
 	floors.append(scene_instance)
