@@ -90,7 +90,6 @@ func update_animations(input_axis):
 # =================================================== SEÑALES =========================================================================================== 
 # AGREGAR PISO (SE MODIFICARÁ CUANDO SE AGREGUEN MÁS TIPOS DE PISOS)
 func add_floor(floor_type, _a, _b):
-	print(floor_type)
 	var new_floor = "res://scenes/player/" + floor_type + ".tscn"
 	var scene = load(new_floor)
 	var scene_instance = scene.instantiate()

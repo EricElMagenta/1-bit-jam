@@ -24,6 +24,6 @@ shape = SubResource("RectangleShape2D_k3y36")
 position = Vector2(0, -8)
 target_position = Vector2(-19, 0)
 
-[node name="RightRaycast" type="RayCast2D" parent="." groups=["Floors"]]
+[node name="RightRaycast" type="RayCast2D" parent="."]
 position = Vector2(0, -8)
 target_position = Vector2(19, 0)
