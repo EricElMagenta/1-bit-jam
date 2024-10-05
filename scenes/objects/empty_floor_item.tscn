@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnithiw2grmmu"]
+
+[ext_resource type="Script" path="res://scenes/objects/empty_floor_item.gd" id="1_1g14u"]
+[ext_resource type="Texture2D" uid="uid://pwo0ei1kv7tx" path="res://sprites/Player/empty_floor_front.png" id="2_8vxmk"]
+[ext_resource type="Texture2D" uid="uid://drp1s63d1kaxs" path="res://sprites/Player/empty_floor_back.png" id="3_3wp88"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y2qpg"]
+radius = 1.0
+height = 34.0
+
+[node name="EmptyFloorItem" type="Area2D" groups=["FloorItems"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_1g14u")
+
+[node name="Sprite2DFront" type="Sprite2D" parent="."]
+texture = ExtResource("2_8vxmk")
+
+[node name="Sprite2DBack" type="Sprite2D" parent="."]
+position = Vector2(-10, 0)
+texture = ExtResource("3_3wp88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y2qpg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
