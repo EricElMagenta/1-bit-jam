@@ -17,25 +17,34 @@ func _physics_process(_delta):
 		
 
 # CAMBIA EL ORDEN DE LOS PISOS DE ARRIBA HACIA ABAJO O AL REVÉS
-func swap_floors_up():
-	print("UP")
+func swap_floors_down():
+	print("DOWN")
 	for i in range(player.floors.size()-1):
 		if i != len(player.floors)-1: 
 			var aux_floor_index = player.floors[i].floor_index
+			var floor = player.floors[i]
+			
 			player.floors[i].floor_index = player.floors[i+1].floor_index
 			player.floors[i+1].floor_index = aux_floor_index
+			
+			player.floors[i] = player.floors[i+1]
+			player.floors[i+1] = floor
+	
+	for i in range(len(player.floors)):
+		print(player.floors[i].floor_index)
 
-func swap_floors_down():
-	print("DOWN	")
+func swap_floors_up():
+	print("UP")
 	for i in range(player.floors.size()-1, -1, -1):
 		if i != len(player.floors)-1: 
 			var aux_floor_index = player.floors[i].floor_index
+			var floor = player.floors[i]
+			
 			player.floors[i].floor_index = player.floors[i-1].floor_index
 			player.floors[i-1].floor_index = aux_floor_index
-
-		#if i != len(player.floors)-1: 
-		#	player.floors[i].floor_index = player.floors[len(player.floors)-1].floor_index
 			
-		#var aux_floor_index = player.floors[0].floor_index
-		#player.floors[0].floor_index = player.floors[1].floor_index 
-		#player.floors[1].floor_index = aux_floor_index
+			player.floors[i] = player.floors[i-1]
+			player.floors[i-1] = floor
+
+	for i in range(len(player.floors)):
+		print(player.floors[i].floor_index)
