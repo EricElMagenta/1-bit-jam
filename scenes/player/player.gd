@@ -13,10 +13,6 @@ func _ready():
 	var items = get_tree().get_nodes_in_group("FloorItems")
 	for item in items:
 		item.got_floor.connect(add_floor.bind(item.floor_type, item))
-		
-	#get_tree().get_first_node_in_group("FloorItems").connect("got_floor", add_floor)
-	#Events.got_floor.connect(add_floor) 
-	#Events.got_floor.connect(add_floor.bind("floor_type")) 
 	
 # ================================================ FUNCIÓN PRINCIPAL =================================================================================
 func _physics_process(delta):

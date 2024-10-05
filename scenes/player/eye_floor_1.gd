@@ -1,11 +1,25 @@
 extends Floor
 
-@onready var sprite_2d = $Sprite2D
 @onready var input_axis = 1
+@onready var fireball = load("res://scenes/objects/fire_ball.tscn")
+
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		shoot()
 	
+# FUNCIÓN DE DISPARAR
 func shoot():
-	print("PEW!!")
+	var instance_right = fireball.instantiate()
+	var instance_left = fireball.instantiate()
+	
+	# BAALA QUE VA HACIA ATRÁS
+	instance_left.dir = -1
+	
+	# SE USA VECTOR 2 PARA AJUSTAR EL PUNTO DE ORIGEN DE LAS BALAS
+	instance_right.spawn_pos = global_position + Vector2(30, 0) 
+	instance_left.spawn_pos = global_position + Vector2(-30, 0)
+	
+	# INSTANCIA LAS BALAS
+	call_deferred("add_sibling", instance_right)
+	call_deferred("add_sibling", instance_left)

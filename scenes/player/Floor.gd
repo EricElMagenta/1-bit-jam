@@ -35,7 +35,5 @@ func handle_movement(input_axis):
 		collision_detected = true
 	else:
 		collision_detected = false
-	#elif (!input_axis && is_on_wall()) || !is_on_wall(): #Colisión terminada
-	#	collision_detected = false
 	
 	position = Vector2(player.position.x, player.position.y - (floor_index * FLOOR_HEIGHT) + 5)

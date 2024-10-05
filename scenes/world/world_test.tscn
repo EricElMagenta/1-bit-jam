@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2r3cump25277"]
+[gd_scene load_steps=7 format=3 uid="uid://b2r3cump25277"]
 
 [ext_resource type="Script" path="res://scenes/world/world_test.gd" id="1_ihpo6"]
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="2_aa0d3"]
 [ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="3_ocf25"]
+[ext_resource type="PackedScene" uid="uid://buheapx6pflbf" path="res://scenes/objects/flying_floor_item.tscn" id="3_rt680"]
 [ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="4_mlbq8"]
 [ext_resource type="PackedScene" uid="uid://ljagpwiamh3h" path="res://scenes/objects/mouth_floor_item.tscn" id="5_coxs4"]
 
@@ -20,20 +21,14 @@ polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 254, 56, 255, 12
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
+[node name="FlyingFloorItem" parent="." instance=ExtResource("3_rt680")]
+position = Vector2(63, 141)
+
+[node name="MouthFloorItem" parent="." instance=ExtResource("5_coxs4")]
+position = Vector2(156, 131)
+
 [node name="NormalFloorItem" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(137, 144)
+position = Vector2(207, 137)
 
-[node name="EyeFloorItem3" parent="." instance=ExtResource("4_mlbq8")]
-position = Vector2(41, 155)
-
-[node name="MouthFloorItem2" parent="." instance=ExtResource("5_coxs4")]
-position = Vector2(87, 153)
-
-[node name="NormalFloorItem2" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(89, 81)
-
-[node name="EyeFloorItem4" parent="." instance=ExtResource("4_mlbq8")]
-position = Vector2(230, 127)
-
-[node name="MouthFloorItem3" parent="." instance=ExtResource("5_coxs4")]
-position = Vector2(175, 134)
+[node name="EyeFloorItem" parent="." instance=ExtResource("4_mlbq8")]
+position = Vector2(75, 114)
