@@ -5,6 +5,7 @@ const FLOOR_HEIGHT = 17
 @export var movement_data : PlayerMovementData # RESOURCE DEL MOVIMIENTO
 @onready var animated_sprite_2d = $AnimatedSprite2D # REFERENCIA AL NODO animated sprite 2d
 @onready var up_raycast = $UpRaycast # RAYCAST PARA TECHOS (DEBE ESTAR SIEMPRE POR ENCIMA DE LA ÚLTIMA TORRE)
+@onready var hovering_timer = $HoveringTimer
 var floors = []
 
 # ================================================ FUNCCIÓN READY ===================================================================================
@@ -23,16 +24,22 @@ func _physics_process(delta):
 
 	# Handle jump.
 	handle_jump()
-	
+	#if movement_data.double_jump_acquired: handle_hovering()
+
 	var input_axis = Input.get_axis("ui_left", "ui_right")
 	handle_movement(input_axis, delta)
 	apply_friction(input_axis)
 	update_animations(input_axis)
 
+	print(hovering_timer.time_left)
+
 	move_and_slide()
 	
 	# Reiniciar nivel
 	if Input.is_action_just_pressed("ui_down"):
+		movement_data.double_jump_acquired = false
+		movement_data.air_jumps = 0
+		movement_data.max_air_jumps = 0
 		get_tree().reload_current_scene()
 
 # =============================================== FUNCIONES AUXILIARES ===================================================================================
@@ -60,8 +67,33 @@ func detect_collisions():
 
 # SALTO
 func handle_jump():
+	# RECARGA SALTOS EN EL AIRE CUANDO TOCA EL SUELO
+	if is_on_floor() && movement_data.double_jump_acquired: 
+		movement_data.can_air_jump = true
+		movement_data.air_jumps = movement_data.max_air_jumps
+	
+	# SALTO NORMAL
 	if is_on_floor() && Input.is_action_just_pressed("ui_up"):
 		velocity.y = movement_data.JUMP_VELOCITY
+	
+	# SALTO EN EL AIRE
+	if !is_on_floor():
+		if Input.is_action_just_pressed("ui_up") && movement_data.can_air_jump && movement_data.air_jumps > 0:
+			velocity.y = movement_data.JUMP_VELOCITY
+			movement_data.air_jumps -= 1
+			if movement_data.air_jumps < 1: movement_data.can_air_jump = false
+
+func handle_hovering():
+	if is_on_floor(): movement_data.can_hover = true
+	if velocity.y > 0 && Input.is_action_pressed("ui_up") && movement_data.can_hover:
+		if hovering_timer.time_left > 0.0:
+			velocity.y = 0
+			
+		if hovering_timer.is_stopped() || !Input.is_action_pressed("ui_up"): 
+			movement_data.can_hover = false
+	
+	elif !Input.is_action_pressed("ui_up"):
+		hovering_timer.start()
 
 # DETECTAR COLISIÓN CON LOS TECHOS
 func update_up_shapecast():

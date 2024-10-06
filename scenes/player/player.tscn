@@ -53,6 +53,7 @@ floor_max_angle = 0.698132
 floor_snap_length = 3.0
 script = ExtResource("1_00inp")
 movement_data = ExtResource("2_gbau0")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vp1pq")
@@ -60,7 +61,6 @@ shape = SubResource("RectangleShape2D_vp1pq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mouc0")
 animation = &"Idle"
-metadata/_edit_lock_ = true
 
 [node name="UpRaycast" type="ShapeCast2D" parent="."]
 modulate = Color(0.967637, 0.844337, 1, 1)
@@ -68,3 +68,12 @@ position = Vector2(0, -3)
 enabled = false
 shape = SubResource("RectangleShape2D_p810s")
 target_position = Vector2(0, -0.785)
+
+[node name="HoveringTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

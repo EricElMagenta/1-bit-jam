@@ -2,33 +2,36 @@
 
 [ext_resource type="Script" path="res://scenes/world/world_test.gd" id="1_ihpo6"]
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="2_aa0d3"]
-[ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="3_ocf25"]
 [ext_resource type="PackedScene" uid="uid://buheapx6pflbf" path="res://scenes/objects/flying_floor_item.tscn" id="3_rt680"]
-[ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="4_mlbq8"]
-[ext_resource type="PackedScene" uid="uid://ljagpwiamh3h" path="res://scenes/objects/mouth_floor_item.tscn" id="5_coxs4"]
+[ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="4_wsmu4"]
+[ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="5_wt4bj"]
+[ext_resource type="PackedScene" uid="uid://ljagpwiamh3h" path="res://scenes/objects/mouth_floor_item.tscn" id="6_pycx0"]
 
 [node name="WorldTest" type="Node2D"]
 script = ExtResource("1_ihpo6")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_aa0d3")]
-position = Vector2(4, 101)
+position = Vector2(5, 96)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(0, -56)
-polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 289, 56, 290, 138, 244, 138, 244, 146, 299, 146, 300, 65, 312, 64, 312, 224, 151.389, 224, 151, 210, 132, 210, 132.054, 224, 8, 224, 8, 165)
+polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 289, 56, 290, 115, 244, 115, 244, 146, 299, 146, 300, 65, 312, 64, 312, 224, 151.389, 224, 151, 210, 132, 210, 132.054, 224, 8, 224, 8, 165)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
 [node name="FlyingFloorItem" parent="." instance=ExtResource("3_rt680")]
-position = Vector2(63, 141)
+position = Vector2(57, 133)
 
-[node name="MouthFloorItem" parent="." instance=ExtResource("5_coxs4")]
-position = Vector2(156, 131)
+[node name="NormalFloorItem" parent="." instance=ExtResource("4_wsmu4")]
+position = Vector2(124, 128)
 
-[node name="NormalFloorItem" parent="." instance=ExtResource("3_ocf25")]
-position = Vector2(207, 137)
+[node name="FlyingFloorItem2" parent="." instance=ExtResource("3_rt680")]
+position = Vector2(76, 104)
 
-[node name="EyeFloorItem" parent="." instance=ExtResource("4_mlbq8")]
-position = Vector2(75, 114)
+[node name="EyeFloorItem" parent="." instance=ExtResource("5_wt4bj")]
+position = Vector2(161, 100)
+
+[node name="MouthFloorItem" parent="." instance=ExtResource("6_pycx0")]
+position = Vector2(181, 139)

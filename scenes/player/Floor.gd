@@ -8,7 +8,6 @@ const FLOOR_HEIGHT = 17
 @onready var left_raycast = $LeftRaycast
 @onready var right_raycast = $RightRaycast
 
-
 var collision_detected = false
 var left_ray_collision = false # Collision izq. con torres
 var right_ray_collision = false # Collision der. con torres

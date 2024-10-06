@@ -13,7 +13,7 @@ func _ready():
 	timer.start()
 
 # Viaja hasta chocar con algo, entonces desaparece
-func _physics_process(delta):
+func _physics_process(_delta):
 	if get_slide_collision_count():
 		collision_detected()
 
