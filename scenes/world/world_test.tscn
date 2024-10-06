@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2r3cump25277"]
+[gd_scene load_steps=8 format=4 uid="uid://b2r3cump25277"]
 
 [ext_resource type="Script" path="res://scenes/world/world_test.gd" id="1_ihpo6"]
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="2_aa0d3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="4_wsmu4"]
 [ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="5_wt4bj"]
 [ext_resource type="PackedScene" uid="uid://ljagpwiamh3h" path="res://scenes/objects/mouth_floor_item.tscn" id="6_pycx0"]
+[ext_resource type="PackedScene" uid="uid://b77begws0b118" path="res://scenes/world/tile_map.tscn" id="7_ln2f6"]
 
 [node name="WorldTest" type="Node2D"]
 script = ExtResource("1_ihpo6")
@@ -17,7 +18,7 @@ position = Vector2(5, 96)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(0, -56)
-polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 289, 56, 290, 115, 244, 115, 244, 146, 299, 146, 300, 65, 312, 64, 312, 224, 151.389, 224, 151, 210, 132, 210, 132.054, 224, 8, 224, 8, 165)
+polygon = PackedVector2Array(0, 165, 0, 240, 328, 240, 323, 56, 289, 56, 290, 115, 244, 115, 244, 146, 299, 146, 300, 65, 312, 64, 312, 224, 151.389, 224, 151, 210, 132, 210, 72, 216, 8, 224, 8, 165)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
 
@@ -35,3 +36,6 @@ position = Vector2(161, 100)
 
 [node name="MouthFloorItem" parent="." instance=ExtResource("6_pycx0")]
 position = Vector2(181, 139)
+
+[node name="TileMap" parent="." instance=ExtResource("7_ln2f6")]
+tile_map_data = PackedByteArray("AAD7/wYAAAABAAAAAAD7/wcAAAABAAEAAAD6/wcAAAAFAAMAAAD7/wgAAAABAAIAAAD8/wcAAAACAAEAAAD8/wYAAAACAAAAAAD6/wYAAAAAAAAAAAD6/wgAAAAAAAIAAAD8/wgAAAACAAIAAAD5/wcAAAABAAMAAAD4/wcAAAAAAAAAAAD4/wgAAAADAAIAAAANAAEAAAACAAAAAAAMAAEAAAABAAMAAAALAAEAAAAAAAAAAAALAAIAAAADAAEAAAALAAMAAAAAAAIAAAAMAAMAAAABAAMAAAANAAMAAAACAAIAAAANAAIAAAADAAEAAAA=")

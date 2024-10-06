@@ -31,8 +31,6 @@ func _physics_process(delta):
 	apply_friction(input_axis)
 	update_animations(input_axis)
 
-	print(hovering_timer.time_left)
-
 	move_and_slide()
 	
 	# Reiniciar nivel
