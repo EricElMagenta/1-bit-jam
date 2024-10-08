@@ -16,9 +16,12 @@ func shoot():
 	# BAALA QUE VA HACIA ATRÁS
 	instance_left.dir = -1
 	
+	instance_right.set_name("fireball_r")
+	instance_left.set_name("fireball_l")
+	
 	# SE USA VECTOR 2 PARA AJUSTAR EL PUNTO DE ORIGEN DE LAS BALAS
-	instance_right.spawn_pos = global_position + Vector2(30, 0) 
-	instance_left.spawn_pos = global_position + Vector2(-30, 0)
+	instance_right.spawn_pos = global_position + Vector2(20, 0) 
+	instance_left.spawn_pos = global_position + Vector2(-20, 0)
 	
 	# INSTANCIA LAS BALAS
 	call_deferred("add_sibling", instance_right)

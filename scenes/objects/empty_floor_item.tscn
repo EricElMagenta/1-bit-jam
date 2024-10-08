@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnithiw2grmmu"]
 
-[ext_resource type="Script" path="res://scenes/objects/empty_floor_item.gd" id="1_1g14u"]
+[ext_resource type="Script" path="res://scenes/scripts/object/empty_floor_item.gd" id="1_1g14u"]
 [ext_resource type="Texture2D" uid="uid://pwo0ei1kv7tx" path="res://sprites/Player/empty_floor_front.png" id="2_8vxmk"]
 [ext_resource type="Texture2D" uid="uid://drp1s63d1kaxs" path="res://sprites/Player/empty_floor_back.png" id="3_3wp88"]
 

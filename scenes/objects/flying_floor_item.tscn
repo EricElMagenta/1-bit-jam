@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://buheapx6pflbf"]
 
-[ext_resource type="Script" path="res://scenes/objects/flying_floor_item.gd" id="1_mc8xb"]
+[ext_resource type="Script" path="res://scenes/scripts/object/flying_floor_item.gd" id="1_mc8xb"]
 [ext_resource type="Texture2D" uid="uid://dh64hsgwbsffi" path="res://sprites/Player/flying_floor.png" id="1_wwshm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8xi4"]

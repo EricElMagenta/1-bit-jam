@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6bp8068bjqi0"]
 
 [ext_resource type="Texture2D" uid="uid://cgsk75ng5a8wc" path="res://sprites/Objects/fireball.png" id="1_bpahp"]
-[ext_resource type="Script" path="res://scenes/objects/fire_ball.gd" id="1_vesrw"]
+[ext_resource type="Script" path="res://scenes/scripts/object/fire_ball.gd" id="1_vesrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gihlr"]
-size = Vector2(14, 14)
+size = Vector2(16, 14)
 
 [node name="Fireball" type="CharacterBody2D"]
 collision_layer = 16

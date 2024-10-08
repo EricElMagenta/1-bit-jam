@@ -1,12 +1,13 @@
 extends Node2D
 
-@onready var collision_polygon_2d = $StaticBody2D/CollisionPolygon2D
-@onready var polygon_2d = $StaticBody2D/CollisionPolygon2D/Polygon2D
-@onready var player = get_node("CharacterBody2D")
+@onready var player = get_node("Player")
+@onready var key = load("res://scenes/objects/key.tscn")
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
-	polygon_2d.polygon = collision_polygon_2d.polygon
+	Events.stage_clear.connect(stage_cleared)
+	Events.all_boxes_destroyed.connect(all_boxes_destroyed_clear)
+
 
 func _physics_process(_delta):
 	if len(player.floors) > 1:
@@ -38,3 +39,14 @@ func swap_floors_up():
 			
 			player.floors[i] = player.floors[i-1]
 			player.floors[i-1] = floor_aux
+
+func stage_cleared():
+	get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 5/Stage5.tscn")
+	
+func all_boxes_destroyed_clear():
+	spawn_key()
+
+func spawn_key():
+	var key_instance = key.instantiate()
+	key_instance.position = Vector2(100, -50)
+	call_deferred("add_child", key_instance)

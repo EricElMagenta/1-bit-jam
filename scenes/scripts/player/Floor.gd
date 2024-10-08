@@ -3,7 +3,7 @@ class_name Floor
 
 const FLOOR_HEIGHT = 17
 
-@onready var player = get_parent().get_node("CharacterBody2D") # Referencia al jugador
+@onready var player = get_parent().get_node("Player") # Referencia al jugador
 @onready var floor_index = len(player.floors) # Conteo de pisos
 @onready var left_raycast = $LeftRaycast
 @onready var right_raycast = $RightRaycast

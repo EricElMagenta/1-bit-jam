@@ -4,6 +4,11 @@
 
 [resource]
 script = ExtResource("1_b767v")
-SPEED = 100.0
+SPEED = 180.0
 JUMP_VELOCITY = -300.0
 friction = 500
+double_jump_acquired = false
+can_air_jump = false
+air_jumps = 0
+max_air_jumps = 0
+can_hover = false
