@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://br6nwjr44ugdj"]
+
+[ext_resource type="Script" path="res://scenes/scripts/enemies/flying_enemy.gd" id="1_p3p6d"]
+[ext_resource type="Texture2D" uid="uid://dkouwkujiq1on" path="res://sprites/Enemies/floating_enemy-Sheet.png" id="2_heey5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b4cd"]
+atlas = ExtResource("2_heey5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0yui"]
+atlas = ExtResource("2_heey5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4eft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b4cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0yui")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxtwc"]
+size = Vector2(17, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf8g2"]
+size = Vector2(24, 18)
+
+[node name="FlyingEnemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_p3p6d")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p4eft")
+animation = &"flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_kxtwc")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_qf8g2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

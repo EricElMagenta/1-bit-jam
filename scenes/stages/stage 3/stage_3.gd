@@ -8,6 +8,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	print(get_tree())
 	if len(player.floors) > 1:
 		if Input.is_action_just_pressed("swap_floor_up"): swap_floors_up()
 		if Input.is_action_just_pressed("swap_floor_down"): swap_floors_down()

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://brapjub0xxn5j"]
+
+[ext_resource type="Script" path="res://scenes/scripts/enemies/turret_enemy.gd" id="1_fkffq"]
+[ext_resource type="Texture2D" uid="uid://c8mksk1tvhf58" path="res://sprites/Enemies/enemy_turret.png" id="1_ljlos"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nc3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ljlos")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f11hf"]
+size = Vector2(28, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1qgw"]
+size = Vector2(33, 17)
+
+[node name="TurretEnemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_fkffq")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3nc3f")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f11hf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_k1qgw")
+
+[node name="schut_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_fireball_entered"]
+[connection signal="timeout" from="schut_timer" to="." method="_on_schut_timer_timeout"]

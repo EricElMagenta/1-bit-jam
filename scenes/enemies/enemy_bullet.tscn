@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://credd3if4xrgp"]
+
+[ext_resource type="Script" path="res://scenes/scripts/enemies/enemy_bullet.gd" id="1_4jk0w"]
+[ext_resource type="Texture2D" uid="uid://cvwai5r5u8lyr" path="res://sprites/Enemies/torret_bullet.png" id="1_sel7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj6nm"]
+size = Vector2(18, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4q4n"]
+size = Vector2(20, 16)
+
+[node name="EnemyBullet" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_4jk0w")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sel7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oj6nm")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_b4q4n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

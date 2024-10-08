@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const FLOOR_HEIGHT = 17
 
@@ -123,3 +124,8 @@ func add_floor(floor_type, _a, _b):
 	up_raycast.enabled = true
 	update_up_shapecast()
 	call_deferred("add_sibling", scene_instance)
+
+
+func _on_area_2d_body_entered(body):
+	if body is EnemyBullet:
+		get_tree().reload_current_scene.call_deferred()
