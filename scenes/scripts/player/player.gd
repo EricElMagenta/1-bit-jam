@@ -7,6 +7,7 @@ const FLOOR_HEIGHT = 17
 @onready var animated_sprite_2d = $AnimatedSprite2D # REFERENCIA AL NODO animated sprite 2d
 @onready var up_raycast = $UpRaycast # RAYCAST PARA TECHOS (DEBE ESTAR SIEMPRE POR ENCIMA DE LA ÚLTIMA TORRE)
 @onready var hovering_timer = $HoveringTimer
+@onready var area_2d = $Area2D
 var floors = []
 
 # ================================================ FUNCCIÓN READY ===================================================================================
@@ -15,6 +16,7 @@ func _ready():
 	var items = get_tree().get_nodes_in_group("FloorItems")
 	for item in items:
 		item.got_floor.connect(add_floor.bind(item.floor_type, item))
+	reset_jumps()
 	
 # ================================================ FUNCIÓN PRINCIPAL =================================================================================
 func _physics_process(delta):
@@ -35,11 +37,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# Reiniciar nivel
-	if Input.is_action_just_pressed("ui_down"):
-		movement_data.double_jump_acquired = false
-		movement_data.air_jumps = 0
-		movement_data.max_air_jumps = 0
-		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("restart_level"):
+		restart_level()
 
 # =============================================== FUNCIONES AUXILIARES ===================================================================================
 # MOVIMIENTO
@@ -97,6 +96,10 @@ func handle_hovering():
 # DETECTAR COLISIÓN CON LOS TECHOS
 func update_up_shapecast():
 	up_raycast.position.y -= FLOOR_HEIGHT 
+	#if len(floors) == 1: area_2d.scale.x = 1.6
+	#area_2d.position.y -= 8.38
+	#area_2d.scale.y += 1.65
+	
 
 # FRICCIÓN
 func apply_friction(input_axis):
@@ -114,6 +117,14 @@ func update_animations(input_axis):
 	if !is_on_floor():
 		animated_sprite_2d.play("Jump")
 
+func reset_jumps():
+	movement_data.double_jump_acquired = false
+	movement_data.air_jumps = 0
+	movement_data.max_air_jumps = 0
+
+func restart_level():
+	get_tree().reload_current_scene.call_deferred()
+
 # =================================================== SEÑALES =========================================================================================== 
 # AGREGAR PISO (SE MODIFICARÁ CUANDO SE AGREGUEN MÁS TIPOS DE PISOS)
 func add_floor(floor_type, _a, _b):
@@ -127,5 +138,6 @@ func add_floor(floor_type, _a, _b):
 
 
 func _on_area_2d_body_entered(body):
-	if body is EnemyBullet:
-		get_tree().reload_current_scene.call_deferred()
+	if body is EnemyBulletLeft || body is EnemyBulletRight:
+		#get_tree().reload_current_scene.call_deferred()
+		restart_level()

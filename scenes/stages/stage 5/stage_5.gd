@@ -41,7 +41,7 @@ func swap_floors_up():
 			player.floors[i-1] = floor_aux
 
 func stage_cleared():
-	get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 3/Stage3.tscn")
+	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 6/Stage6.tscn")
 	
 func all_boxes_destroyed_clear():
 	spawn_key()

@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://brapjub0xxn5j"]
+[gd_scene load_steps=6 format=3 uid="uid://da42ocbkeh0bw"]
 
-[ext_resource type="Script" path="res://scenes/scripts/enemies/turret_enemy.gd" id="1_fkffq"]
-[ext_resource type="Texture2D" uid="uid://c8mksk1tvhf58" path="res://sprites/enemies/enemy_turret.png" id="1_ljlos"]
+[ext_resource type="Script" path="res://scenes/scripts/enemies/turret_enemy_2.gd" id="1_11cw5"]
+[ext_resource type="Texture2D" uid="uid://c8mksk1tvhf58" path="res://sprites/enemies/enemy_turret.png" id="2_3cixx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3nc3f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ljlos")
+"texture": ExtResource("2_3cixx")
 }],
 "loop": true,
 "name": &"idle",
@@ -20,9 +20,9 @@ size = Vector2(28, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1qgw"]
 size = Vector2(33, 17)
 
-[node name="TurretEnemy" type="CharacterBody2D"]
+[node name="TurretEnemy2" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_fkffq")
+script = ExtResource("1_11cw5")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -41,6 +41,7 @@ position = Vector2(0.5, -2.5)
 shape = SubResource("RectangleShape2D_k1qgw")
 
 [node name="schut_timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_fireball_entered"]

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player = get_node("Player")
 
+
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.stage_clear.connect(stage_cleared)
@@ -39,4 +40,4 @@ func swap_floors_up():
 			player.floors[i-1] = floor_aux
 
 func stage_cleared():
-	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 4/Stage4.tscn")
+	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 8/Stage8.tscn")

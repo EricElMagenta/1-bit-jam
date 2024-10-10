@@ -14,11 +14,10 @@ func _ready():
 
 # Viaja hasta chocar con algo, entonces desaparece
 func _physics_process(delta):
-	if get_slide_collision_count():
-		collision_detected()
 
 	velocity = Vector2(speed * dir, 0)
 	move_and_collide(velocity * delta)
+	
 
 # Desaparece si se acaba el Timer
 func _on_timer_timeout():
@@ -27,3 +26,4 @@ func _on_timer_timeout():
 # Desaparece si choca con algo
 func collision_detected():
 	queue_free()
+	

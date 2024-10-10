@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkouwkujiq1on"
-path="res://.godot/imported/floating_enemy-Sheet.png-6c8d822fb5dcf000120141ffd07cfae9.ctex"
+path="res://.godot/imported/floating_enemy-Sheet.png-ad51f42f06fa9737b66d122a1b036ed1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Enemies/floating_enemy-Sheet.png"
-dest_files=["res://.godot/imported/floating_enemy-Sheet.png-6c8d822fb5dcf000120141ffd07cfae9.ctex"]
+source_file="res://sprites/enemies/floating_enemy-Sheet.png"
+dest_files=["res://.godot/imported/floating_enemy-Sheet.png-ad51f42f06fa9737b66d122a1b036ed1.ctex"]
 
 [params]
 

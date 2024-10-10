@@ -1,13 +1,14 @@
 extends CharacterBody2D
-class_name EnemyBulletLeft
+class_name EnemyBulletRight
 
 @onready var area_2d = $Area2D
 
 var speed = -220.0
-var dir : float = 1
+var dir : float = -1
 var spawn_pos : Vector2
 
 func _ready():
+	scale.x = -1
 	global_position = spawn_pos
 
 func _physics_process(delta):

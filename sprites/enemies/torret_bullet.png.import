@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvwai5r5u8lyr"
-path="res://.godot/imported/torret_bullet.png-e5413716cc3c9df7f6d51be3322758da.ctex"
+path="res://.godot/imported/torret_bullet.png-fdeb33f0dfa9950e3d114f815c81eeb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Enemies/torret_bullet.png"
-dest_files=["res://.godot/imported/torret_bullet.png-e5413716cc3c9df7f6d51be3322758da.ctex"]
+source_file="res://sprites/enemies/torret_bullet.png"
+dest_files=["res://.godot/imported/torret_bullet.png-fdeb33f0dfa9950e3d114f815c81eeb1.ctex"]
 
 [params]
 

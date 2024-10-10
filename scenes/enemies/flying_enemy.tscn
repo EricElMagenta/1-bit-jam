@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://br6nwjr44ugdj"]
 
 [ext_resource type="Script" path="res://scenes/scripts/enemies/flying_enemy.gd" id="1_p3p6d"]
-[ext_resource type="Texture2D" uid="uid://dkouwkujiq1on" path="res://sprites/Enemies/floating_enemy-Sheet.png" id="2_heey5"]
+[ext_resource type="Texture2D" uid="uid://dkouwkujiq1on" path="res://sprites/enemies/floating_enemy-Sheet.png" id="2_heey5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0b4cd"]
 atlas = ExtResource("2_heey5")

@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 @onready var schut_timer = $schut_timer
-@onready var bullet = load("res://scenes/enemies/enemy_bullet.tscn")
+@onready var bullet = load("res://scenes/enemies/enemy_bullet2.tscn")
 var can_shoot = true
+
+func _ready():
+	scale.x = -1
 
 # Dispara una vez por segundo. Cuando dispara can_shoot se hace falso y empieza el timer
 # para que can_shoot sea verdadero de nuevo

@@ -39,4 +39,8 @@ func swap_floors_up():
 			player.floors[i-1] = floor_aux
 
 func stage_cleared():
-	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 4/Stage4.tscn")
+	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 9/Stage9.tscn")
+
+
+func _on_dedzone_body_entered(body):
+	player.restart_level()

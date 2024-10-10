@@ -39,4 +39,11 @@ func swap_floors_up():
 			player.floors[i-1] = floor_aux
 
 func stage_cleared():
-	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 4/Stage4.tscn")
+	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 11/Stage11.tscn")
+
+func _on_dedzone_body_entered(body):
+	player.restart_level()
+
+func _on_ded_bullet_zone_body_entered(body):
+	if body is EnemyBulletLeft:
+		body.queue_free()

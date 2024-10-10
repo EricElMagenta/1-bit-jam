@@ -1,11 +1,12 @@
 extends Node2D
 
 @onready var player = get_node("Player")
+@onready var key = load("res://scenes/objects/key.tscn")
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.stage_clear.connect(stage_cleared)
-
+	Events.all_boxes_destroyed.connect(all_boxes_destroyed_clear)
 
 func _physics_process(_delta):
 	if len(player.floors) > 1:
@@ -39,4 +40,15 @@ func swap_floors_up():
 			player.floors[i-1] = floor_aux
 
 func stage_cleared():
-	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 4/Stage4.tscn")
+	if get_tree(): get_tree().change_scene_to_file.call_deferred("res://scenes/stages/stage 10/Stage10.tscn")
+
+func _on_dedzone_body_entered(body):
+	player.restart_level()
+
+func all_boxes_destroyed_clear():
+	spawn_key()
+
+func spawn_key():
+	var key_instance = key.instantiate()
+	key_instance.position = Vector2(200, -600)
+	call_deferred("add_child", key_instance)
