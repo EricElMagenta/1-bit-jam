@@ -8,7 +8,7 @@
 size = Vector2(31, 14)
 
 [node name="FlyingFloor1" type="CharacterBody2D" groups=["Floors"]]
-position = Vector2(-68, 35)
+position = Vector2(-204, 188)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_ecqa1")
