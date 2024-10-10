@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=4 uid="uid://bpoaajfwnqm46"]
+[gd_scene load_steps=6 format=4 uid="uid://bpoaajfwnqm46"]
 
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="1_1sp3e"]
 [ext_resource type="Script" path="res://scenes/stages/stage 1/stage_1.gd" id="1_54nfj"]
+[ext_resource type="Texture2D" uid="uid://bjhw2ey1dxqdw" path="res://sprites/tutorial_move.png" id="2_aqyg4"]
 [ext_resource type="PackedScene" uid="uid://b77begws0b118" path="res://scenes/world/tile_map.tscn" id="2_yjirk"]
 [ext_resource type="PackedScene" uid="uid://btrxw86p4fl2d" path="res://scenes/objects/key.tscn" id="3_5oguk"]
 
 [node name="Stage1" type="Node2D"]
 script = ExtResource("1_54nfj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -59)
+scale = Vector2(0.507353, 0.507353)
+texture = ExtResource("2_aqyg4")
 
 [node name="Player" parent="." instance=ExtResource("1_1sp3e")]
 position = Vector2(-32, 8)

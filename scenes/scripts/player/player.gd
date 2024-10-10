@@ -39,6 +39,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	if len(floors) > 1  && (Input.is_action_just_pressed("swap_floor_down") || Input.is_action_just_pressed("swap_floor_up")):
+		sound_got_floor.play()
+	
 	# Reiniciar nivel
 	if Input.is_action_just_pressed("restart_level"):
 		restart_level()

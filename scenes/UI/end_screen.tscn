@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bml5r2nmpgtv2"]
+
+[ext_resource type="Texture2D" uid="uid://c3ugbhu3gy085" path="res://sprites/Tower Ending Screen.png" id="1_6d01o"]
+[ext_resource type="Script" path="res://scenes/scripts/UI/end_screen.gd" id="1_de57m"]
+
+[node name="end_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_de57m")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 641.0
+offset_bottom = 320.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 160)
+texture = ExtResource("1_6d01o")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

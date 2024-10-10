@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=4 uid="uid://dfqq5bi5r3sxd"]
+[gd_scene load_steps=7 format=4 uid="uid://dfqq5bi5r3sxd"]
 
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="1_tc3u0"]
 [ext_resource type="Script" path="res://scenes/stages/stage 2/stage_2.gd" id="1_wg0d7"]
 [ext_resource type="PackedScene" uid="uid://btrxw86p4fl2d" path="res://scenes/objects/key.tscn" id="2_1alau"]
 [ext_resource type="PackedScene" uid="uid://b77begws0b118" path="res://scenes/world/tile_map.tscn" id="3_mq8sc"]
 [ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="5_he5c5"]
+[ext_resource type="Texture2D" uid="uid://dgt5q58dpcusd" path="res://sprites/tutorial_restart.png" id="6_wul03"]
 
 [node name="Stage2" type="Node2D"]
 script = ExtResource("1_wg0d7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_tc3u0")]
 position = Vector2(-275, 55)
@@ -26,3 +29,8 @@ position = Vector2(-131, 15)
 
 [node name="NormalFloorItem3" parent="." instance=ExtResource("5_he5c5")]
 position = Vector2(-80, -3)
+
+[node name="TutorialRestart" type="Sprite2D" parent="."]
+position = Vector2(-186, -55)
+scale = Vector2(0.603448, 0.603448)
+texture = ExtResource("6_wul03")

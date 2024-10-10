@@ -14,7 +14,7 @@ func _physics_process(_delta):
 
 func handle_shoot():
 	var bullet_instance = bullet.instantiate()
-	bullet_instance.spawn_pos = global_position + Vector2(-20, 0)
+	bullet_instance.spawn_pos = global_position + Vector2(20, 0)
 	call_deferred("add_sibling", bullet_instance)
 	
 	can_shoot = false

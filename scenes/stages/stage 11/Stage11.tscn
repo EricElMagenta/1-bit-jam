@@ -30,7 +30,7 @@ tile_map_data = PackedByteArray("AAAYAAcAAgABAAEAAAAYAAYAAgABAAEAAAAYAAUAAgABAAE
 position = Vector2(682, -23)
 
 [node name="TurretEnemy2" parent="." instance=ExtResource("5_b5qqv")]
-position = Vector2(-627, -26)
+position = Vector2(-627, -22)
 
 [node name="BigBox" parent="." instance=ExtResource("6_e1iis")]
 position = Vector2(-519, -103)
@@ -76,7 +76,7 @@ position = Vector2(292, -175)
 
 [node name="dedBulletZoneR" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dedBulletZoneR"]
 position = Vector2(-708, -26)
@@ -85,7 +85,7 @@ debug_color = Color(4.81307e-07, 0.61934, 0.571092, 0.42)
 
 [node name="dedBulletZoneL" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dedBulletZoneL"]
 position = Vector2(808, -25)
