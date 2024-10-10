@@ -8,6 +8,9 @@ const FLOOR_HEIGHT = 17
 @onready var up_raycast = $UpRaycast # RAYCAST PARA TECHOS (DEBE ESTAR SIEMPRE POR ENCIMA DE LA ÚLTIMA TORRE)
 @onready var hovering_timer = $HoveringTimer
 @onready var area_2d = $Area2D
+@onready var sound_jump = $SoundJump
+@onready var sound_hit = $SoundHit
+@onready var sound_got_floor = $SoundGotFloor
 var floors = []
 
 # ================================================ FUNCCIÓN READY ===================================================================================
@@ -73,6 +76,7 @@ func handle_jump():
 	# SALTO NORMAL
 	if is_on_floor() && Input.is_action_just_pressed("ui_up"):
 		velocity.y = movement_data.JUMP_VELOCITY
+		sound_jump.play()
 	
 	# SALTO EN EL AIRE
 	if !is_on_floor():
@@ -80,6 +84,7 @@ func handle_jump():
 			velocity.y = movement_data.JUMP_VELOCITY
 			movement_data.air_jumps -= 1
 			if movement_data.air_jumps < 1: movement_data.can_air_jump = false
+			sound_jump.play()
 
 func handle_hovering():
 	if is_on_floor(): movement_data.can_hover = true
@@ -128,6 +133,7 @@ func restart_level():
 # =================================================== SEÑALES =========================================================================================== 
 # AGREGAR PISO (SE MODIFICARÁ CUANDO SE AGREGUEN MÁS TIPOS DE PISOS)
 func add_floor(floor_type, _a, _b):
+	sound_got_floor.play()
 	var new_floor = "res://scenes/player/" + floor_type + ".tscn"
 	var scene = load(new_floor)
 	var scene_instance = scene.instantiate()
@@ -139,5 +145,6 @@ func add_floor(floor_type, _a, _b):
 
 func _on_area_2d_body_entered(body):
 	if body is EnemyBulletLeft || body is EnemyBulletRight:
+		sound_hit.play()
 		#get_tree().reload_current_scene.call_deferred()
 		restart_level()

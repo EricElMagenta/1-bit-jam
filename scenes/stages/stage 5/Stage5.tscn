@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://2w541ngowk24"]
+[gd_scene load_steps=8 format=4 uid="uid://2w541ngowk24"]
 
 [ext_resource type="Script" path="res://scenes/stages/stage 5/stage_5.gd" id="1_5talk"]
 [ext_resource type="PackedScene" uid="uid://b77begws0b118" path="res://scenes/world/tile_map.tscn" id="2_8y1b4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="4_6aio3"]
 [ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="5_2cbep"]
 [ext_resource type="PackedScene" uid="uid://btle0wcim3k5k" path="res://scenes/objects/big_box.tscn" id="6_2fmyu"]
+[ext_resource type="AudioStream" uid="uid://b0yi76n7bu7k7" path="res://scenes/sounds/pickupKey.wav" id="7_s3cmi"]
 
 [node name="Stage5" type="Node2D"]
 script = ExtResource("1_5talk")
@@ -36,3 +37,7 @@ position = Vector2(-312, 24)
 
 [node name="BigBox3" parent="." instance=ExtResource("6_2fmyu")]
 position = Vector2(296, 40)
+
+[node name="SoundKey" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_s3cmi")
+bus = &"SFX"

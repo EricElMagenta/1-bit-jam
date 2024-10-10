@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bf5anpu2etk0w"]
+[gd_scene load_steps=7 format=4 uid="uid://bf5anpu2etk0w"]
 
 [ext_resource type="Script" path="res://scenes/stages/stage 4/stage_4.gd" id="1_8r574"]
 [ext_resource type="PackedScene" uid="uid://b77begws0b118" path="res://scenes/world/tile_map.tscn" id="2_h8hjw"]
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="3_r4jcm"]
 [ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="5_2p0dk"]
+[ext_resource type="AudioStream" uid="uid://b0yi76n7bu7k7" path="res://scenes/sounds/pickupKey.wav" id="6_8msr5"]
 [ext_resource type="PackedScene" uid="uid://btle0wcim3k5k" path="res://scenes/objects/big_box.tscn" id="6_cgjox"]
 
 [node name="Stage4" type="Node2D"]
@@ -20,3 +21,6 @@ position = Vector2(112, -32)
 
 [node name="BigBox" parent="." instance=ExtResource("6_cgjox")]
 position = Vector2(272, -8)
+
+[node name="SoundKey" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8msr5")

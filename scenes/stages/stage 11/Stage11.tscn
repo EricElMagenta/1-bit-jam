@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://78tr0eeitbme"]
+[gd_scene load_steps=13 format=4 uid="uid://78tr0eeitbme"]
 
 [ext_resource type="Script" path="res://scenes/stages/stage 11/stage_11.gd" id="1_dyfxy"]
 [ext_resource type="PackedScene" uid="uid://b5bh32jafe1cc" path="res://scenes/player/player.tscn" id="2_osv6y"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://din8ce5knrujv" path="res://scenes/objects/eye_floor_item.tscn" id="7_layw2"]
 [ext_resource type="PackedScene" uid="uid://cff6c0fhsxbbh" path="res://scenes/objects/normal_floor_item.tscn" id="8_wxra1"]
 [ext_resource type="PackedScene" uid="uid://buheapx6pflbf" path="res://scenes/objects/flying_floor_item.tscn" id="9_vauyy"]
+[ext_resource type="AudioStream" uid="uid://b0yi76n7bu7k7" path="res://scenes/sounds/pickupKey.wav" id="10_wvdum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlcjv"]
 size = Vector2(76, 308)
@@ -90,6 +91,10 @@ collision_mask = 4
 position = Vector2(808, -25)
 shape = SubResource("RectangleShape2D_untya")
 debug_color = Color(0, 0.62242, 0.546233, 0.42)
+
+[node name="SoundKey" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_wvdum")
+bus = &"SFX"
 
 [connection signal="body_entered" from="dedBulletZoneR" to="." method="_on_ded_bullet_zone_r_body_entered"]
 [connection signal="body_entered" from="dedBulletZoneL" to="." method="_on_ded_bullet_zone_l_body_entered"]

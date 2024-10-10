@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player = get_node("Player")
 @onready var key = load("res://scenes/objects/key.tscn")
+@onready var sound_key = $SoundKey
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
@@ -47,6 +48,7 @@ func all_boxes_destroyed_clear():
 	spawn_key()
 
 func spawn_key():
+	sound_key.play()
 	var key_instance = key.instantiate()
 	key_instance.position = Vector2(100, -50)
 	call_deferred("add_child", key_instance)

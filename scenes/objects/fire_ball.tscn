@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6bp8068bjqi0"]
+[gd_scene load_steps=5 format=3 uid="uid://c6bp8068bjqi0"]
 
 [ext_resource type="Texture2D" uid="uid://cgsk75ng5a8wc" path="res://sprites/Objects/fireball.png" id="1_bpahp"]
 [ext_resource type="Script" path="res://scenes/scripts/object/fire_ball.gd" id="1_vesrw"]
+[ext_resource type="AudioStream" uid="uid://drmjymt4hn7p2" path="res://scenes/sounds/shoot.wav" id="3_qvapl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gihlr"]
 size = Vector2(16, 14)
@@ -19,5 +20,10 @@ texture = ExtResource("1_bpahp")
 shape = SubResource("RectangleShape2D_gihlr")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="SoundShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qvapl")
+volume_db = -20.0
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

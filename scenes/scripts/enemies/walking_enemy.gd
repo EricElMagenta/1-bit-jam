@@ -6,6 +6,8 @@ var dir = 1
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var fall_raycast = $FallRaycast
 @onready var area_2d = $Area2D
+@onready var sound_hit = $SoundHit
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -30,6 +32,7 @@ func handle_collisions():
 
 # Si toca al jugador se reinicia un nivel y si le llega un disparo se borra.
 func _on_area_player_entered(body):
+	sound_hit.play()
 	if body is Player:
 		get_tree().reload_current_scene.call_deferred()
 	

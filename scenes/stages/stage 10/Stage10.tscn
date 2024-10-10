@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://drifm2he45y58"]
+[gd_scene load_steps=11 format=4 uid="uid://drifm2he45y58"]
 
 [ext_resource type="Script" path="res://scenes/stages/stage 10/stage_10.gd" id="1_8wi70"]
 [ext_resource type="PackedScene" uid="uid://b77begws0b118" path="res://scenes/world/tile_map.tscn" id="2_urunp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://buheapx6pflbf" path="res://scenes/objects/flying_floor_item.tscn" id="5_tutph"]
 [ext_resource type="PackedScene" uid="uid://d07lhjhnuscee" path="res://scenes/enemies/walking_enemy.tscn" id="6_c8cp2"]
 [ext_resource type="PackedScene" uid="uid://btrxw86p4fl2d" path="res://scenes/objects/key.tscn" id="7_1delw"]
+[ext_resource type="AudioStream" uid="uid://dkk2b1i3o81eg" path="res://scenes/sounds/hitHurt.wav" id="8_0ti1w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uksxb"]
 size = Vector2(1476, 20)
@@ -67,6 +68,10 @@ debug_color = Color(8.18223e-07, 0.627161, 0.504475, 0.42)
 
 [node name="Key" parent="." instance=ExtResource("7_1delw")]
 position = Vector2(-46, -344)
+
+[node name="SoundKey" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_0ti1w")
+bus = &"SFX"
 
 [connection signal="body_entered" from="dedzone" to="." method="_on_dedzone_body_entered"]
 [connection signal="body_entered" from="dedBulletZone" to="." method="_on_ded_bullet_zone_body_entered"]

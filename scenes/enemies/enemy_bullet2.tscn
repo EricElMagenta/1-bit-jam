@@ -10,7 +10,7 @@ size = Vector2(18, 14)
 size = Vector2(20, 16)
 
 [node name="EnemyBullet" type="CharacterBody2D"]
-collision_layer = 4
+collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_udo6c")
 metadata/_edit_group_ = true

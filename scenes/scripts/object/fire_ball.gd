@@ -3,6 +3,7 @@ class_name Fireball
 
 @export var speed = 400
 @onready var timer = $Timer
+@onready var sound_shoot = $SoundShoot
 
 var dir : float = 1
 var spawn_pos : Vector2
@@ -11,6 +12,7 @@ var spawn_pos : Vector2
 func _ready():
 	global_position = spawn_pos
 	timer.start()
+	sound_shoot.play()
 
 # Viaja hasta chocar con algo, entonces desaparece
 func _physics_process(delta):
